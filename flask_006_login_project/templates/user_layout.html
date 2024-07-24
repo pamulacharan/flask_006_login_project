@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        bottom: 0;
+        margin: auto;
+        overflow: hidden;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #0779e4 3px solid;
+      }
+      header a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+      header ul {
+        padding: 0;
+        list-style: none;
+      }
+      header li {
+        float: left;
+        display: inline;
+        padding: 0 20px 0 20px;
+      }
+      header a.active {
+        background-color: #90ee90;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      footer {
+        background: #333;
+        position: fixed;
+        left: 0;
+        color: #fff;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 30px;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Flask App</h1>
+        <nav>
+          <ul>
+            <li>
+              <a
+                class="{{ 'active' if active_page == 'home' else '' }}"
+                href="/"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="{{ 'active' if active_page == 'about' else '' }}"
+                href="/about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                class="{{ 'active' if active_page == 'contact' else '' }}"
+                href="/contact"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                class="{{ 'active' if active_page == 'register' else '' }}"
+                href="/register"
+                >Register</a
+              >
+            </li>
+            <li>
+              <a
+                class="{{ 'active' if active_page == 'admin' else '' }}"
+                href="/admin"
+                >Admin</a
+              >
+            </li>
+            <li>
+              <a
+                class="{{ 'active' if active_page == 'user' else '' }}"
+                href="/user"
+                >User</a
+              >
+            </li>
+            <li>
+              <a class="{{ 'active' if active_page == '' else '' }}" href="/"
+                >Log out</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">{% block content %}{% endblock %}</div>
+    <footer>
+      <p>Flask App &copy; 2024</p>
+    </footer>
+  </body>
+</html>
